@@ -1,71 +1,67 @@
 ---
-title: "A3: Incarceration"
+title: "Jail Population per country/state"
 output: html_document
 ---
 
 ### Introduction
+**An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)**
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+Prison and jail incarceration trend is always the controversial topic that has aroused the world's attention and elicited passionate discussion. The racial categories, including AAPI, Black, Latinx, Native, and White Americans, would be a breakthrough point for understanding the potential disparities within the criminal justice system. I choose to focus on the total prison population of both Black and White American prisons per county/state starting in 1970. I am committed to figuring out which group is more likely to be incarcerated and checking out whether unconscious racial discrimination existed.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+**Considered questions:**
+- How many total Black  prisons have there been in the U.S. by 2010?
+- How many total White prisons have there been in the U.S. by 2010?
+- How much has the total Black prisons change between 2010 and 30 years before that?
+- How much has the total White prisons change between 2010 and 30 years before that?
+New York has the highest number of Black prisons.
+- Which state has had the highest number of Black prisons in 2010?
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+In 2020, the total number of Black prisons in the U.S. is 488969, and the total number of White prisons in the U.S. is 448158. The population between these two racial groups logically verifies the distinct disparities, where there are more Black Americans being incarcerated in the U.S. compared with White Americans. As continuously looking closer into the incarceration trend, the total number of Black prisons in the thirty years before 2010 is 6393, which is still greater than the number of white prisons 4243 at that time. The populations of Black prisons remains still far ahead of White prisons, considered to `diff_black_prison` is 482576 and `diff_white_prison` is 443915 among the thirty years change. California has the highest number of Black prisons in 2010.
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+**Who collected the data?**
+
+The dataset collected and released by Vera Institute of Justice.
+
+**How was the data collected or generated?**
+
+The dataset assembled the information from the U.S. Department of Justice Bureau of Justice Statistics(BJS) and supplemented it with state departments of correction.
+
+**Why was the data collected?**
+
+The main purpose of the data collection is to provide county-level information on prison and jail incarceration and other related measures over time for the entire United States.
+
+**How many observations (rows) are in your data?**  
+
+There are 1538811 observations in the data.
+
+**How many features (columns) are in the data?**  
+
+There are 36 features in the data.
+
+**What, if any, ethical questions or questions of power do you need to consider when working with this data?**
+
+Considering the data included a large size of statistics, widespread in public; and its classification related to the different racial backgrounds, the ethical question we might need to consider is whether any external factors would affect the accuracy of the data withheld. For example, data collectors and contributors hold their subjective perspectives on some specific groups, causing race-related biases in analyzing the incarceration trend.
+
+**What are possible limitations or problems with this data? (at least 200 words)**
+
+The dataset includes information on the total population of prisons in every single county and state of the U.S., crossed through a long time span. Therefore, huge amounts of data are required to be organized and summarized, where we need to choose the most representative features to support the different racial backgrounds. Besides, we should carefully remove the "NA" values from the analyzing, avoided them to cause the inaccuracy and misunderstanding.
 
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
+The chart significantly displays the total population of black and white prisons over the time in U.S. It proves that the number of black prison is much more greater than the number of white prison. The total prison population starts to increase from 1980 and finally reaches to the peak between 1990 and 2000 with the majority number of black prison.
 
 ``````{r, echo = FALSE, code = readLines("chart1_example.R")}
 ```
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+The scatterplot shows the comparison between the black prison population and the total prison population in California, committed to seeing how the prison population changes over time; and what role the black prison population stands for in general. The conclusion I would make is that the prison population has always been fluctuating, tending to have increased trends as time passed by. Among the total prison population, the number of black prisons would play a crucial role since it has occupied around half of the overall prison number in the year between 1990 and 2000.  
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+Based on the given map, it is obvious to see that both Texas and California states have the greater number of black prison in the year of 2010. At the same time, many of the states in the east coast has relatively small amount of the black prison population. The geographical map gives an overall insight about the population comparison between each states across the whole country.  
