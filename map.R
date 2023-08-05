@@ -6,7 +6,7 @@ library("ggplot2")
 library("scales")
 library("maps")
 
-prison_population <- read.csv("/Users/nancyliu/Documents/Dataset about prison population per county and state.csv") 
+prison_population <- read.csv("/Users/nancyliu/Documents/assignment-04-NancyLiu2002/Dataset about prison population per county and state.csv") 
 view(prison_population)
 
 summarize_data <- prison_population %>% 
@@ -24,7 +24,7 @@ state_naming
 total_pop <- summarize_data %>% 
   mutate(full_name = tolower(full_name))
 prison_state_shape <- left_join(total_pop, state_shape, by = c("full_name" = "region"))
-total_per_state
+
 
 
 prison_pop_map <- ggplot(data = prison_state_shape) +

@@ -2,7 +2,7 @@ library("tidyverse")
 library("dplyr")
 library("ggplot2")
 ## Summary Information
-prison_population <- read.csv("/Users/nancyliu/Documents/Dataset about prison population per county and state.csv")
+prison_population <- read.csv("/Users/nancyliu/Documents/assignment-04-NancyLiu2002/Dataset about prison population per county and state.csv")
 View(prison_population)
 
 # How many total Black prisons have there been in the U.S. by 2010?
@@ -10,7 +10,7 @@ total_black_prison <- prison_population %>%
   filter(year == 2010) %>%
   filter(state == "CA") %>%
   summarize(total_black_prison_pop = sum(black_prison_pop, na.rm = TRUE))
-total_black_prison
+total_black_prison 
 
 # How many total White prisons have there been in the U.S. by 2010?
 total_white_prison <- prison_population %>%

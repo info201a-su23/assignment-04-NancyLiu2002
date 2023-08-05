@@ -1,7 +1,22 @@
 ---
-title: "Jail Population per country/state"
+title: "Prison/Jail Population per country/state"
 output: html_document
 ---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(scales)
+library(maps)
+prison_population <- read.csv("/Users/nancyliu/Documents/assignment-04-NancyLiu2002/Dataset about prison population per county and state.csv")
+View(prison_population)
+
+source('summary.R')
+source('chart_1.R')
+source('chart_2.R')
+source('map.R')
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ### Introduction
 **An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)**
@@ -11,14 +26,23 @@ Prison and jail incarceration trend is always the controversial topic that has a
 ### Summary Information
 
 **Considered questions:**
-- How many total Black  prisons have there been in the U.S. by 2010?
-- How many total White prisons have there been in the U.S. by 2010?
-- How much has the total Black prisons change between 2010 and 30 years before that?
-- How much has the total White prisons change between 2010 and 30 years before that?
-New York has the highest number of Black prisons.
-- Which state has had the highest number of Black prisons in 2010?
+> How many total Black  prisons have there been in the U.S. by 2010?
+> How many total White prisons have there been in the U.S. by 2010?
+> How much has the total Black prisons change between 2010 and 30 years before that?
+> How much has the total White prisons change between 2010 and 30 years before that?
+> Which state has had the highest number of Black prisons in 2010?
 
-In 2020, the total number of Black prisons in the U.S. is 488969, and the total number of White prisons in the U.S. is 448158. The population between these two racial groups logically verifies the distinct disparities, where there are more Black Americans being incarcerated in the U.S. compared with White Americans. As continuously looking closer into the incarceration trend, the total number of Black prisons in the thirty years before 2010 is 6393, which is still greater than the number of white prisons 4243 at that time. The populations of Black prisons remains still far ahead of White prisons, considered to `diff_black_prison` is 482576 and `diff_white_prison` is 443915 among the thirty years change. California has the highest number of Black prisons in 2010.
+``````{r, echo = FALSE, code = readLines("summary.R")}
+total_black_prison 
+total_white_prison
+state_highest_black_prison 
+diff_black_prison
+diff_white_prison
+num_obs_pop
+num_features_pop
+```
+
+In 2020, the total number of Black prisons in the U.S. is 47675, and the total number of White prisons in the U.S. is 448158. The population between these two racial groups logically verifies the distinct disparities, where there are more Black Americans being incarcerated in the U.S. compared with White Americans. As continuously looking closer into the incarceration trend, the total number of Black prisons in the thirty years before 2010 is 6393, which is still greater than the number of white prisons 4243 at that time. The populations of Black prisons remains still far ahead of White prisons, considered to `diff_black_prison` is 482576 and `diff_white_prison` is 443915 among the thirty years change. California has the highest number of Black prisons in 2010.
 
 ### The Dataset
 
@@ -52,16 +76,23 @@ The dataset includes information on the total population of prisons in every sin
 
 
 ### Trends Over Time Chart
+``````{r, echo = FALSE, code = readLines("chart_1.R")}
+chart_1
+```
 
 The chart significantly displays the total population of black and white prisons over the time in U.S. It proves that the number of black prison is much more greater than the number of white prison. The total prison population starts to increase from 1980 and finally reaches to the peak between 1990 and 2000 with the majority number of black prison.
 
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
-```
 
 ### Variable Comparison Chart
+``````{r, echo = FALSE, code = readLines("chart_2.R")}
+chart_2
+```
 
 The scatterplot shows the comparison between the black prison population and the total prison population in California, committed to seeing how the prison population changes over time; and what role the black prison population stands for in general. The conclusion I would make is that the prison population has always been fluctuating, tending to have increased trends as time passed by. Among the total prison population, the number of black prisons would play a crucial role since it has occupied around half of the overall prison number in the year between 1990 and 2000.  
 
 ### Map
+``````{r, echo = FALSE, code = readLines("map.R")}
+prison_pop_map
+```
 
 Based on the given map, it is obvious to see that both Texas and California states have the greater number of black prison in the year of 2010. At the same time, many of the states in the east coast has relatively small amount of the black prison population. The geographical map gives an overall insight about the population comparison between each states across the whole country.  
